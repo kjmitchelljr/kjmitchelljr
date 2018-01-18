@@ -14,6 +14,9 @@ body {
 .home {
   font-weight: 300; }
 
+.resume-btn {
+  font-size: 0.9rem; }
+
 #main-footer {
   position: absolute;
   right: 0;
