@@ -1,7 +1,3 @@
-body {
-  font-family: "Open Sans", sans-serif;
-  height: 100%; }
-
 .home-section {
   height: 100vh; }
   .home-section .centered-div {
@@ -16,7 +12,3 @@ body {
     font-weight: 300; }
   .home-section .resume-btn {
     font-size: 0.9rem; }
-
-#footer-section i {
-  padding: 0 0.20rem;
-  font-size: 1.5rem; }
