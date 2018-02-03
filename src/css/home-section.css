@@ -1,3 +1,6 @@
+.nav-fade {
+  transition: 0.7s all; }
+
 #home {
   height: 100vh; }
   #home .centered-div {

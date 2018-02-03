@@ -3,41 +3,49 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 
 //Compile Sass & Inject Into Browser
-gulp.task('sass', function(){
-  return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
-  .pipe(sass())
-  .pipe(gulp.dest("src/css"))
-  .pipe(browserSync.stream());
+gulp.task('sass', function() {
+	return gulp
+		.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+		.pipe(sass())
+		.pipe(gulp.dest('src/css'))
+		.pipe(browserSync.stream());
 });
 
 //Move JS Files to src/js
-gulp.task('js', function(){
-  return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
-  .pipe(gulp.dest("src/js"))
-  .pipe(browserSync.stream());
+gulp.task('js', function() {
+	return gulp
+		.src([
+			'node_modules/bootstrap/dist/js/bootstrap.min.js',
+			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/popper.js/dist/umd/popper.min.js'
+		])
+		.pipe(gulp.dest('src/js'))
+		.pipe(browserSync.stream());
+});
+
+//Watch Script.js File
+gulp.task('script', function() {
+	gulp.watch('src/js/script.js').on('change', browserSync.reload);
 });
 
 //Watch Sass & Server
-gulp.task('serve', ['sass'], function(){
-  browserSync.init({
-    server: "./src"
-  });
+gulp.task('serve', ['sass'], function() {
+	browserSync.init({
+		server: './src'
+	});
 
-  gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass'
-  ]);
-  gulp.watch("src/*.html").on('change', browserSync.reload);
+	gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
+	gulp.watch('src/*.html').on('change', browserSync.reload);
 });
 
 //Move Fonts Folder to src
-gulp.task('fonts', function(){
-  return gulp.src(['node_modules/font-awesome/*'])
-  .pipe(gulp.dest("src/fonts"));
+gulp.task('fonts', function() {
+	return gulp.src(['node_modules/font-awesome/*']).pipe(gulp.dest('src/fonts'));
 });
 
 //Move Font Awesome CSS to src/css
-gulp.task('fa', function(){
-  return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css'])
-  .pipe(gulp.dest("src/css"));
+gulp.task('fa', function() {
+	return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css']).pipe(gulp.dest('src/css'));
 });
 
-gulp.task('default', ['js', 'serve', 'fa', 'fonts']);
+gulp.task('default', ['js', 'script', 'serve', 'fa', 'fonts']);
