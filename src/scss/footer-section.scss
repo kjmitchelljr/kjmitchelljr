@@ -1,11 +1,21 @@
-#footer {
-	// position: absolute;
-	// right: 0;
-	// bottom: 0;
-	// left: 0;
+@import 'mixins';
 
+#footer {
+	h5 {
+		font-size: 1rem;
+	}
 	i {
-		padding: 0 0.2rem;
-		font-size: 1.6rem;
+		padding: 0 5px;
+		font-size: 1.1rem;
+	}
+
+	@include bp(largeScreen) {
+		h5 {
+			font-size: larger;
+		}
+
+		i {
+			font-size: 1.4rem;
+		}
 	}
 }
