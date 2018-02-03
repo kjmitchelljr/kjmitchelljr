@@ -2,9 +2,9 @@ body {
   font-family: "Open Sans", sans-serif;
   height: 100%; }
 
-.home-section {
+#home {
   height: 100vh; }
-  .home-section .centered-div {
+  #home .centered-div {
     position: absolute;
     top: 0;
     left: 0;
@@ -12,11 +12,11 @@ body {
     bottom: 0;
     width: 18.75rem;
     height: 12.5rem; }
-  .home-section .home {
+  #home .home {
     font-weight: 300; }
-  .home-section .resume-btn {
+  #home .resume-btn {
     font-size: 0.9rem; }
 
-#footer-section i {
+#footer i {
   padding: 0 0.20rem;
   font-size: 1.5rem; }
