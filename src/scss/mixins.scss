@@ -1,0 +1,15 @@
+@mixin bp($breakPoint) {
+	@if $breakPoint == smallScreen {
+		@media (min-width: 320px) {
+			@content;
+		}
+	} @else if $breakPoint == mediumScreen {
+		@media (min-width: 768px) {
+			@content;
+		}
+	} @else if $breakPoint == largeScreen {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	}
+}
