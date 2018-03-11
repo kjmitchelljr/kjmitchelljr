@@ -20,6 +20,12 @@ body {
   #home .resume-btn {
     font-size: 0.9rem; }
 
+#about img {
+  border: 3px solid white; }
+
+#about p {
+  line-height: 2.0; }
+
 #footer h5 {
   font-size: 1rem; }
 
